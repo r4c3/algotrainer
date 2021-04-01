@@ -1,11 +1,19 @@
 <script>
-	let color_bg = '#e9e9e9'
-	let color_fg = '#f0f0f0'
+	import Router from 'svelte-spa-router'
+	import Home from './components/Home.svelte';
+	import Login from './components/Login.svelte';
+	import NotFound from './components/NotFound.svelte';
+	import Problems from './components/Problems.svelte';
+	import Solve from './components/Solve.svelte';
 </script>
 
-<div>
-	<h1>have fun</h1>
-</div>
+<Router routes={{
+	'/': Home,
+	'/login': Login,
+	'/problems': Problems,
+	'/problem/:qid': Solve,
+	'*': NotFound
+}} />
 
 <style>
 
