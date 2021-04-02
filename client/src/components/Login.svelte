@@ -20,6 +20,7 @@
         isLoading = false
         if (result.status === "ok") {
           console.log("Got token", result.data)
+          localStorage.setItem("token", result.data)
         }
         else {
           switch (result.error) {

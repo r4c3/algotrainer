@@ -26,10 +26,29 @@ app.use("/", express.static(path.join(__dirname, "staitc")))
 app.use(express.urlencoded({extended: true}))
 
 app.post('/api/changepw', async (req, res) => {
-    const { token } = req.body
-    const user = jwt.verify(token, JWT_SECRET)
+    const { new_password: plain, token } = req.body
 
-    res.json({status})
+    if (!plain || typeof plain !== "string") {
+        return res.json({status: "error", error: "108"})
+    }
+    if (plain.length < 6) {
+        return res.json({status: "error", error: "109"})
+    }
+
+    const hashed_password = await bcrypt.hash(plain, 11)
+    
+    try {
+        const user = jwt.verify(token, JWT_SECRET)
+        const _id = user.id
+
+        await User.updateOne({ _id }, {
+            $set: { password: hashed_password }
+        })
+        res.json({status: "ok"})
+    }
+    catch {
+        res.json({status: "error", error: "107"})
+    }
 })
 
 app.post("/api/login", async (req, res) => {
@@ -45,7 +64,7 @@ app.post("/api/login", async (req, res) => {
         const token = jwt.sign({
             id: user._id, email: user.email
         }, JWT_SECRET)
-
+        console.log("in")
         return res.json({ status: "ok", data: token})
     }
 

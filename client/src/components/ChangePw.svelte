@@ -1,32 +1,30 @@
 <script>
-    let email = "";
-    let password = "";
+    import { loc } from "svelte-spa-router";
+    let new_password = "";
     let isLoading = false;
     let isSuccess = false;
     let errors = {};
     const handleSubmit = async () => {
         isLoading = true
         errors = {};
-        const result = await fetch("http://localhost:9999/api/login", {
+        const result = await fetch("http://localhost:9999/api/changepw", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                email,
-                password
+                new_password,
+                token: localStorage.getItem("token")
             })
         }).then((res) => res.json())
         isLoading = false
         if (result.status === "ok") {
-          console.log("Got token", result.data)
+
         }
         else {
           switch (result.error) {
-            case "105":
-              errors.Error = "No account with this email exists."
-            case "106":
-              errors.Error = "Invalid login."
+            case "107":
+              errors.Error = "Invalid token. Log out and back in before changing password."
             default:
               errors.Error = "An unknown error occured."
           }
@@ -43,16 +41,13 @@
         You've been successfully logged in.
       </div>
     {:else}
-      <h1>Log In</h1>
-  
-      <label for="email">Email</label>
-      <input name="email" autocomplete="off" placeholder="name@example.com" bind:value={email} />
-  
-      <label for="password">Password</label>
-      <input name="password" autocomplete="off" placeholder="6 Charcter Minimum" type="password" bind:value={password} />
+      <h1>Change Password</h1>
+
+      <label for="password">New Password</label>
+      <input name="password" autocomplete="off" placeholder="6 Charcter Minimum" type="password" bind:value={new_password} />
   
       <button type="submit">
-        {#if isLoading}Logging in...{:else}Log in 🔒{/if}
+        {#if isLoading}Changing password...{:else}Update 🔄{/if}
       </button>
   
       {#if Object.keys(errors).length > 0}
