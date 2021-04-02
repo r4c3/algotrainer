@@ -8,6 +8,7 @@
 	import Header from './components/sub/Header.svelte';
 	import Footer from './components/sub/Footer.svelte';
 	import Register from './components/Register.svelte';
+	import ChangePw from './components/ChangePw.svelte';
 </script>
 
 <Header />
@@ -15,6 +16,7 @@
 	'/': Home,
 	'/login': Login,
 	'/register': Register,
+	'/changepw': ChangePw,
 	'/problems': Problems,
 	'/problem/:qid': Solve,
 	'*': NotFound

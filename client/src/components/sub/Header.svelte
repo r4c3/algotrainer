@@ -22,7 +22,7 @@
 <nav style="--nav_height: {nav_height}; --bar_rotation: {bar_rotation}">
     <div>
         {#if burger_clicked}
-            <ul>
+            <ul on:click={burger_clicked = false, toggleBurgerMenu()}>
                 <li><a href="/#/">Home</a></li>
                 <li><a href="/#/problems">All Problems</a></li>
                 <li><a href="/#/login">Log In</a></li>
