@@ -25,6 +25,13 @@ app.use(cors())
 app.use("/", express.static(path.join(__dirname, "staitc")))
 app.use(express.urlencoded({extended: true}))
 
+app.post('/api/changepw', async (req, res) => {
+    const { token } = req.body
+    const user = jwt.verify(token, JWT_SECRET)
+
+    res.json({status})
+})
+
 app.post("/api/login", async (req, res) => {
     const { email, password } = req.body
 
