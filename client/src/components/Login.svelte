@@ -26,10 +26,13 @@
           switch (result.error) {
             case "105":
               errors.Error = "No account with this email exists."
+              break
             case "106":
               errors.Error = "Invalid login."
+              break
             default:
               errors.Error = "An unknown error occured."
+              break
           }
         }
     };

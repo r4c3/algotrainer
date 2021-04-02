@@ -25,6 +25,13 @@
           switch (result.error) {
             case "107":
               errors.Error = "Invalid token. Log out and back in before changing password."
+              break
+            case "108":
+              errors.Error = "Invalid password."
+              break
+            case "109":
+              errors.Error = "Password must be at least 6 characters."
+              break
             default:
               errors.Error = "An unknown error occured."
           }
