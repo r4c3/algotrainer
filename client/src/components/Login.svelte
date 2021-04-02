@@ -56,7 +56,8 @@
         {#if isLoading}Logging in...{:else}Log in 🔒{/if}
       </button>
       <br/>
-      <a href="/#/changepw">Change Password</a>
+      <a href="/#/changepw">Change Password</a><br/>
+      <a href="/#/register">Register</a>
   
       {#if Object.keys(errors).length > 0}
         <ul class="errors">

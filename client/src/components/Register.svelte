@@ -62,6 +62,8 @@
       <button type="submit">
         {#if isLoading}Registering...{:else}Register 🔒{/if}
       </button>
+      <br/>
+      <a href="/#/login">Log In</a>
   
       {#if Object.keys(errors).length > 0}
         <ul class="errors">
@@ -85,6 +87,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    a {
+      color: var(--black);
+      text-decoration: none;
+      transition: 0.2s ease all;
+    }
+    a:hover {
+      color: var(--red);
     }
     form {
       background: #fff;

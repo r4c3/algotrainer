@@ -60,7 +60,7 @@ app.post("/api/login", async (req, res) => {
         return res.json({ status: "erorr", error: "105"})
     }
 
-    if (bcrypt.compare(password, user.password)) {
+    if (await bcrypt.compare(password, user.password)) {
         const token = jwt.sign({
             id: user._id, email: user.email
         }, JWT_SECRET)
@@ -100,7 +100,6 @@ app.post("/api/register", async (req, res) => {
         }
         throw error
     }
-    
     res.json({status: "ok"})
 })
 
