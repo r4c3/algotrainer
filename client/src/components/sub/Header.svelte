@@ -12,9 +12,9 @@
         else {
             document.body.style.overflow = "initial"
             let page = document.getElementById("page")
-            page.style.minHeight = "calc(100% - 120px - 8px)"
+            page.style.minHeight = "calc(100% - 200px - 8px)"
             burger_clicked = true
-            nav_height = "120px"
+            nav_height = "200px"
         }
     }
 </script>
@@ -25,7 +25,8 @@
             <ul>
                 <li><a href="/#/">Home</a></li>
                 <li><a href="/#/problems">All Problems</a></li>
-                <li><a href="/#/login">Log In/Register</a></li>
+                <li><a href="/#/login">Log In</a></li>
+                <li><a href="/#/register">Register</a></li>
             </ul>
         {:else}
             <h1>AlgoTrainer</h1>
@@ -44,7 +45,7 @@
         height: var(--nav_height);
         border-bottom: 6px solid var(--red);
         background-color: #fcfcfc;
-        transition: 0.3s ease all;
+        transition: 0.5s ease all;
     }
     nav div {
         display: flex;
@@ -74,7 +75,7 @@
         height: 4px;
         width: 35px;
         background-color: var(--black);
-        transition: 0.2s ease all;
+        transition: 0.3s ease all;
     }
     
     ul {

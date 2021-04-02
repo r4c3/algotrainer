@@ -7,12 +7,14 @@
 	import Solve from './components/Solve.svelte';
 	import Header from './components/sub/Header.svelte';
 	import Footer from './components/sub/Footer.svelte';
+	import Register from './components/Register.svelte';
 </script>
 
 <Header />
 <Router routes={{
 	'/': Home,
 	'/login': Login,
+	'/register': Register,
 	'/problems': Problems,
 	'/problem/:qid': Solve,
 	'*': NotFound

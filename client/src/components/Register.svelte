@@ -7,7 +7,7 @@
     const handleSubmit = async () => {
         isLoading = true
         errors = {};
-        const result = await fetch("http://localhost:9999/api/login", {
+        const result = await fetch("http://localhost:9999/api/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -19,22 +19,12 @@
         }).then((res) => res.json())
         isLoading = false
         if (result.status === "ok") {
-          console.log("Got token", result.data)
+          //succeed
         }
         else {
           switch (result.error) {
-            case "101":
-              errors.Error = "Invalid email."
-              break
-            case "102":
-              errors.Error = "Invalid password."
-              break
-            case "103":
-              errors.Error = "Email is in use."
-              break
-            case "104":
-              errors.Error = "Password must be at least 6 characters."
-              break
+            case "105":
+                
             default:
               errors.Error = "An unknown error occured."
           }
@@ -51,7 +41,7 @@
         You've been successfully logged in.
       </div>
     {:else}
-      <h1>Log In</h1>
+      <h1>Register</h1>
   
       <label for="email">Email</label>
       <input name="email" autocomplete="off" placeholder="name@example.com" bind:value={email} />
@@ -60,7 +50,7 @@
       <input name="password" autocomplete="off" placeholder="6 Charcter Minimum" type="password" bind:value={password} />
   
       <button type="submit">
-        {#if isLoading}Logging in...{:else}Log in 🔒{/if}
+        {#if isLoading}Registering...{:else}Register 🔒{/if}
       </button>
   
       {#if Object.keys(errors).length > 0}
