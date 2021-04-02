@@ -23,8 +23,18 @@
         }
         else {
           switch (result.error) {
-            case "105":
-                
+            case "101":
+              errors.Error = "Invalid email."
+              break
+            case "102":
+              errors.Error = "Invalid password."
+              break
+            case "103":
+              errors.Error = "Email is in use."
+              break
+            case "104":
+              errors.Error = "Password must be at least 6 characters."
+              break
             default:
               errors.Error = "An unknown error occured."
           }

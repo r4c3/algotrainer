@@ -4,8 +4,11 @@ const path = require("path")
 const cors = require("cors")
 const mongoose = require("mongoose")
 const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
 
 const app = express()
+
+const JWT_SECRET = "Living off bo#$rrowed timesDJKFHsfun38urn8yfn7238@n7%92f$#3m)&*8smdofuf2n8y39y7nf3yasddsa471157925793"
 
 mongoose.connect("mongodb://localhost/users", {
     useNewUrlParser: true,
@@ -23,7 +26,23 @@ app.use("/", express.static(path.join(__dirname, "staitc")))
 app.use(express.urlencoded({extended: true}))
 
 app.post("/api/login", async (req, res) => {
-    res.json({status: "ok", data: "coming"})
+    const { email, password } = req.body
+
+    const user = await User.findOne({ email }).lean()
+
+    if (!user) {
+        return res.json({ status: "erorr", error: "105"})
+    }
+
+    if (bcrypt.compare(password, user.password)) {
+        const token = jwt.sign({
+            id: user._id, email: user.email
+        }, JWT_SECRET)
+
+        return res.json({ status: "ok", data: token})
+    }
+
+    res.json({status: "error", data: "106"})
 })
 
 app.post("/api/register", async (req, res) => {
