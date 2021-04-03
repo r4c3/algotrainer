@@ -1,21 +1,21 @@
 <script>
-    export let args = "int[] nums"
-    export let name = "Question"
-    export let return_type = "int[]"
-    var code = setCodeBox()
-    function setCodeBox() {
-        return `public class Solve {
-    public ${return_type} ${name}(${args}) {
+    export let params = {}
+    const qjson = require("./problems.json")
+    const qdata = qjson.problems[Number(params.qid) - 1]
+    const function_name = qdata.qname.replace(/ /g, "_")
+    console.log(function_name)
+    const code = `public class Solve {
+    public ${qdata.return_type} ${function_name}(${qdata.args}) {
         
     }
 }`
-    }
 </script>
 
 <div id="page">
     <div id="problem_cont">
         <div id="dir">
-            dis 
+            <h3>{qdata.qname}</h3><br/>
+            <p>{qdata.dirs}</p><br/>
         </div>
         <div id="code">
             <textarea id="type_code" name="type_code" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">{code}</textarea>

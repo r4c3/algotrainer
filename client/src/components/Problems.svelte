@@ -1,5 +1,4 @@
 <script>
-    const { identity }=require("svelte/internal")
     const problem_data = require("./problems.json")
     const { default: ProblemBar } = require("./sub/ProblemBar.svelte")
     const problems = problem_data.problems

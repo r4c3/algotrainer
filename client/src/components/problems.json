@@ -3,7 +3,10 @@
         {
             "qid": 1,
             "qname": "Two Sum",
-            "qdiff": 1
+            "qdiff": 1,
+            "args": "int[] nums",
+            "return_type": "int[]",
+            "dirs": "add all the stuff in the array"
         },
         {
             "qid": 2,

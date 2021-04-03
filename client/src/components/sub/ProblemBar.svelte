@@ -35,7 +35,7 @@
         margin: 12px 0px;
         background-color: var(--white);
         padding: 4px;
-        transition: 0.2s ease all;
+        transition: 0.1s ease all;
     }
     p {
         user-select: none;
