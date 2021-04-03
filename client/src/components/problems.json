@@ -6,7 +6,11 @@
             "qdiff": 1,
             "args": "int[] nums",
             "return_type": "int[]",
-            "dirs": "add all the stuff in the array"
+            "dirs": "add all the stuff in the array",
+            "ei1": "4",
+            "eo1": "D",
+            "ei2": "2",
+            "eo2": "B"
         },
         {
             "qid": 2,
