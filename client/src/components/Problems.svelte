@@ -7,7 +7,7 @@
 
 <div id="page">
     <div id="problem_cont">
-        {#each problems as { qid, qname, qdiff }, i}
+        {#each problems as { qid, qname, qdiff }}
             <ProblemBar qid={qid} qname={qname} qdiff={qdiff}/>
         {/each}
     </div>

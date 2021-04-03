@@ -1,18 +1,39 @@
 <script>
     export let params = {}
     const qjson = require("./problems.json")
-    const qdata = qjson.problems[Number(params.qid) - 1]
+    const qid = Number(params.qid)
+    const qdata = qjson.problems[qid - 1]
     const function_name = qdata.qname.replace(/ /g, "_")
-    const code = `public class Solve {
-    public ${qdata.return_type} ${function_name}(${qdata.args}) {
-        
-    }
-}`
+    const code = `function Solve(${qdata.args}) {
+    
+};`
     let resp = "This text will update when you submit code."
     let last_solved = "Never"
     let type_code
     function resetCode() {
         type_code.value = code
+    }
+    async function sendCode() {
+        let code_to_submit = type_code.value
+        const result = await fetch("http://localhost:9999/api/solve", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                code_to_submit,
+                qid
+            })
+        }).then((res) => res.json())
+        if (result.status == "ok") {
+            resp = `Good Job! Your submission passed all test cases.`
+        }
+        else if (result.status == "incorrect") {
+            resp = `Your submission failed at least one test case.<br/>Test Input: ${result.tried}<br/>Expected Output: ${result.expected}<br/>Observed Output: ${result.got}`
+        }
+        else {
+            resp = `Your code exited with an error.</br><b>${result.data[0]}</b>: ${result.data[1]}.`
+        }
     }
 </script>
 
@@ -28,13 +49,13 @@
             <h3>Your Code:</h3>
         </div>
         <div id="code">
-            <textarea bind:this={type_code} id="type_code" name="type_code" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">{code}</textarea>
+            <textarea class="spad" bind:this={type_code} id="type_code" name="type_code" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">{code}</textarea>
         </div>
-        <button>Submit</button>
+        <button on:click={sendCode}>Submit</button>
         <button on:click={resetCode}>Reset</button>
         <h3>Server Response:</h3>
-        <div id="resp">
-            {resp}
+        <div id="resp" class="spad">
+            {@html resp}
         </div>
     </div>
 </div>
@@ -67,13 +88,11 @@
     }
     #type_code {
         min-height: 500px;
-        width: 100%;
         margin: 10px 0px;
         resize: none;
     }
     #resp {
         min-height: 500px;
-        width: 100%;
         margin: 10px 0px;
         border: 1px solid black;
         border-radius: 3px;
@@ -85,5 +104,9 @@
     }
     p {
         margin: 6px 0px;
+    }
+    .spad {
+        padding: 4px;
+        width: calc(100% - 8px);
     }
 </style>
