@@ -51,6 +51,7 @@ app.post('/api/solve', async (req, res) => {
         if (result.globalVar[2] != question.o3) {
             return res.json({status: "incorrect", error: "202", tried: question.t3, expected: question.o3, got: result.globalVar[2]})
         }
+        await User.updateOne
         return res.json({status: "ok", data: "correct submission"})
     }
     catch (e) {
