@@ -1,0 +1,13 @@
+{
+    "tests": [
+        {
+            "qid": 1,
+            "t1": "\"Dmitri\"",
+            "o1": "Hello, Dmitri.",
+            "t2": "\"Ava\"",
+            "o2": "Hello, Ava.",
+            "t3": "\"Tim\"",
+            "o3": "Hello, Tim."
+        }
+    ]
+}

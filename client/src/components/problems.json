@@ -1,0 +1,15 @@
+{
+    "problems": [
+        {
+            "qid": 1,
+            "qname": "Dynamic Greet",
+            "qdiff": 0,
+            "args": "name",
+            "dirs": "Given a name \"name\", return \"Hello, name.\".",
+            "ei1": "Dmitri",
+            "eo1": "Hello, Dmitri.",
+            "ei2": "Ava",
+            "eo2": "Hello, Ava."
+        }
+    ]
+}
