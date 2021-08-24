@@ -5,7 +5,7 @@ export let qdiff
 
 </script>
 
-<a href="/#/problem/{qid}">
+<a href="/#/problems/{qid}">
 <div id="bar">
     <p>ID: {qid}</p>
     {#if (qdiff == 0)}
@@ -20,7 +20,7 @@ export let qdiff
 </div>
 </a>
 
-<a href="/#/problem/{qid}"><p id="qname">{qname}</p></a>
+<a href="/#/problems/{qid}"><p id="qname">{qname}</p></a>
 
 <style>
 a {

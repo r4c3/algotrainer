@@ -12,7 +12,7 @@
 <Router routes={{
 	'/': Home,
 	'/problems': Problems,
-	'/problem/:qid': Solve,
+	'/problems/:qid': Solve,
 	'*': NotFound
 }} />
 <Footer />
