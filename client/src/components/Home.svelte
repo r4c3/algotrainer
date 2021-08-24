@@ -20,7 +20,6 @@
     h1 {
         font-size: 100px;
         text-align: center;
-        margin-bottom: 80px;
     }
     button {
         width: 50%;
@@ -30,5 +29,10 @@
         font-size: 20px;
         font-weight: 700;
         color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        margin: 48px 0px;
     }
 </style>
