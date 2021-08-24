@@ -26,7 +26,6 @@ app.post('/api/solve', async (req, res) => {
         let result = {}
         script.runInNewContext(result)
         console.log(result)
-        let valid = true
         if (result.globalVar[0] != question.o1) {
             return res.json({status: "incorrect", error: "200", tried: question.t1, expected: question.o1, got: result.globalVar[0]})
         }
@@ -36,7 +35,6 @@ app.post('/api/solve', async (req, res) => {
         if (result.globalVar[2] != question.o3) {
             return res.json({status: "incorrect", error: "202", tried: question.t3, expected: question.o3, got: result.globalVar[2]})
         }
-        await User.updateOne
         return res.json({status: "ok", data: "correct submission"})
     }
     catch (e) {
@@ -44,4 +42,5 @@ app.post('/api/solve', async (req, res) => {
     }
 })
 
+console.log("port 9999")
 app.listen(9999)

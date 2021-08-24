@@ -25,7 +25,7 @@
             <ul on:click={burger_clicked = false, toggleBurgerMenu()}>
                 <li><a href="/#/">Home</a></li>
                 <li><a href="/#/problems">All Problems</a></li>
-                <li><a href="/#/contribute">Contribute</a></li>
+                <li><a href="https://github.com/r4c3/algotrainer">Contribute (GitHub)</a></li>
             </ul>
         {:else}
         <a href="/#/"><h1>AlgoTrainer</h1></a>

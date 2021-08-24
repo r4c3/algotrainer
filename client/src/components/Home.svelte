@@ -1,10 +1,9 @@
 <script>
-
 </script>
 
 <div id="page">
     <h1>The free platform to study data structures and algorithms in JavaScript.</h1>
-    <button><h1>View Problems</h1></button>
+    <a href="/#/problems"><button><h1 style="text-decoration: none;">View Problems</h1></button></a>
 </div>
 
 <style>
@@ -20,19 +19,26 @@
     h1 {
         font-size: 100px;
         text-align: center;
+        transition: 0.2s ease all;
     }
     button {
-        width: 50%;
         background-color: var(--black);
         border-radius: 8px;
-        padding: 16px 0px;
         font-size: 20px;
         font-weight: 700;
         color: var(--white);
+        padding: 38px;
+        cursor: pointer;
+    }
+    button:hover h1 {
+        color: var(--red);
+    }
+    a {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 24px;
         margin: 48px 0px;
+        width: 50%;
+        text-decoration: none;
     }
 </style>

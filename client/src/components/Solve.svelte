@@ -40,7 +40,7 @@
 <div id="page">
     <div id="problem_cont">
         <div id="dir">
-            <div id="head"><h2>{qdata.qname}</h2>Last Solved: {last_solved}</div>
+            <div id="head"><h2>{qdata.qname}</h2><!--Last Solved: {last_solved}--></div>
             <p><b>Directions:</b> {qdata.dirs}</p>
             <p><b>Example Input 1:</b> {qdata.ei1}</p>
             <p><b>Example Output 1:</b> {qdata.eo1}</p>

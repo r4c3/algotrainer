@@ -10,6 +10,17 @@
             "eo1": "Hello, Dmitri.",
             "ei2": "Ava",
             "eo2": "Hello, Ava."
+        },
+        {
+            "qid": 2,
+            "qname": "Two Sum",
+            "qdiff": 1,
+            "args": "nums, target",
+            "dirs": "Given an integer array \"nums\" and an integer \"target\", return indices of the two numbers such that they add up to target.",
+            "ei1": "[2, 7, 11, 15], 9",
+            "eo1": "[0, 1]",
+            "ei2": "[3, 2, 4], 6",
+            "eo2": "[1, 2]"
         }
     ]
 }

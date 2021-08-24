@@ -2,7 +2,7 @@
 </script>
 
 <footer>
-    <p>a <a href="https://race.dev">race.dev</a> application</p>
+    <p>a <a href="https://racewilliams.com">racewilliams.com</a> application</p>
 </footer>
 
 <style>
